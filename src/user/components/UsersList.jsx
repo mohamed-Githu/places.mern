@@ -1,16 +1,16 @@
 import React from "react";
 
-import { List, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import UserItem from "./UserItem";
 
 const UsersList = ({ items }) => {
   return items.length ? (
-    <List>
+    <Grid container direction="column" ailgnItems="center">
       {items.map((item) => (
         <UserItem key={item.id} {...item} />
       ))}
-    </List>
+    </Grid>
   ) : (
     <Typography variant="h2" align="center">
       No Users Found
