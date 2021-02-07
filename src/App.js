@@ -11,9 +11,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route path="\" component={Users} exact />
-          <Route path="\places\new" component={NewPlace} exact />
-          <Redirect path="\" />
+          <Route path="/" component={Users} exact />
+          <Route path="/places/new" component={NewPlace} exact />
+          <Redirect path="/" />
         </Switch>
       </Router>
     </ThemeProvider>
