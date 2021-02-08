@@ -1,13 +1,15 @@
+import React from "react";
+
 import {
-  Grid,
   Card,
   CardContent,
   Avatar,
   Typography,
   styled,
 } from "@material-ui/core";
-import React from "react";
 import { withRouter } from "react-router-dom";
+
+import { Flex } from "../../shared/layout";
 
 const CardContainer = styled(Card)(({ theme }) => ({
   margin: "1rem",
@@ -32,11 +34,6 @@ const Image = styled(Avatar)({
   width: "4rem",
   height: "4rem",
   marginRight: "1rem",
-});
-
-const Flex = styled("div")({
-  display: "flex",
-  flexDirection: (props) => (props.direction ? props.direction : "row"),
 });
 
 const UserItem = ({ id, image, placesCount, name, history }) => (
