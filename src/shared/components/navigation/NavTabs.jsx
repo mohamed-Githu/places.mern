@@ -3,7 +3,7 @@ import React from "react";
 import { Tabs, Tab, styled } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 
-import tabs from "./links";
+import tabs from "./data";
 
 const NavLink = styled(Tab)(({ theme }) => ({
   ...theme.typography.tab,

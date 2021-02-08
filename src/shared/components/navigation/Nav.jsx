@@ -1,9 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
 import {
-  AppBar,
-  styled,
   Toolbar,
   useMediaQuery,
   useScrollTrigger,
@@ -12,24 +9,7 @@ import {
 
 import NavTabs from "./NavTabs";
 import Drawer from "./Drawer";
-
-const Title = styled(Link)(({ theme }) => ({
-  ...theme.typography.h1,
-  marginRight: "auto",
-  cursor: "pointer",
-  color: theme.palette.common.yellow,
-  textDecoration: "none",
-}));
-
-const NavBar = styled(AppBar)({
-  position: "fixed",
-});
-
-const Header = styled("header")({
-  zIndex: 1302,
-  position: "relative",
-  marginBottom: "8rem",
-});
+import { Header, NavBar, Title } from "./styles";
 
 const ElevationScroll = ({ children }) => {
   const trigger = useScrollTrigger({

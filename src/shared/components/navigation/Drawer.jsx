@@ -7,24 +7,15 @@ import {
   ListItem,
   ListItemText,
   IconButton,
-  makeStyles,
 } from "@material-ui/core";
+
 import MenuIcon from "@material-ui/icons/Menu";
 
-import listOptions from "./links";
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    backgroundColor: theme.palette.common.yellow,
-  },
-  listItem: {
-    ...theme.typography.tab,
-    color: theme.palette.common.grey,
-  }
-}));
+import listOptions from "./data";
+import { useDrawerStyles } from "./styles";
 
 const Drawer = ({ location: { pathname } }) => {
-  const classes = useStyles();
+  const classes = useDrawerStyles();
 
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
@@ -57,7 +48,7 @@ const Drawer = ({ location: { pathname } }) => {
                 style={{ opacity }}
                 className={classes.listItem}
               >
-                <ListItemText>{name}</ListItemText>
+                <ListItemText secondary>{name}</ListItemText>
               </ListItem>
             );
           })}
