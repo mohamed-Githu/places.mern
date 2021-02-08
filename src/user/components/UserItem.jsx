@@ -31,24 +31,28 @@ const CardContainer = styled(Card)(({ theme }) => ({
 const Image = styled(Avatar)({
   width: "4rem",
   height: "4rem",
+  marginRight: "1rem",
+});
+
+const Flex = styled("div")({
+  display: "flex",
+  flexDirection: (props) => (props.direction ? props.direction : "row"),
 });
 
 const UserItem = ({ id, image, placesCount, name, history }) => (
   <CardContainer onClick={() => history.push(`/${id}/places`)}>
     <CardContent style={{ paddingBottom: "1rem" }}>
-      <Grid container alignItems="center">
-        <Grid item style={{ marginRight: "1em" }}>
-          <Image alt={name} src={image} />
-        </Grid>
-        <Grid item direction="column">
+      <Flex>
+        <Image alt={name} src={image} />
+        <Flex direction="column">
           <Typography gutterBottom variant="h5">
             {name}
           </Typography>
           <Typography variant="subtitle1" style={{ fontWeight: 600 }}>
             {placesCount + (placesCount === 1 ? " Place" : " Places")}
           </Typography>
-        </Grid>
-      </Grid>
+        </Flex>
+      </Flex>
     </CardContent>
   </CardContainer>
 );
