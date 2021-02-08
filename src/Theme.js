@@ -21,6 +21,20 @@ const theme = createMuiTheme({
       main: `${grey}`
     }
   },
+  typography: {
+    tab: {
+      textTransform: "none",
+      fontWeight: 700,
+      fontSize: "1rem",
+      color: grey,
+    },
+    h1: {
+      color: grey,
+      fontWeight: 700,
+      fontSize: "3.5rem",
+      lineHeight: 1.5,
+    },
+  }
 })
 
 export default theme;
