@@ -15,10 +15,10 @@ const theme = createMuiTheme({
       white: "#fff",
     },
     primary: {
-      main: `${yellow}`
+      main: `${grey}`
     },
     secondary: {
-      main: `${grey}`
+      main: `${yellow}`
     }
   },
   typography: {
@@ -26,7 +26,7 @@ const theme = createMuiTheme({
       textTransform: "none",
       fontWeight: 700,
       fontSize: "1rem",
-      color: grey,
+      color: yellow,
     },
     h1: {
       color: grey,

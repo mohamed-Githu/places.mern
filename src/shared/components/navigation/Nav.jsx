@@ -1,15 +1,23 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import { AppBar, styled, Toolbar } from "@material-ui/core";
+import {
+  AppBar,
+  styled,
+  Toolbar,
+  useMediaQuery,
+  useScrollTrigger,
+  useTheme,
+} from "@material-ui/core";
 
 import NavTabs from "./NavTabs";
+import Drawer from "./Drawer";
 
 const Title = styled(Link)(({ theme }) => ({
   ...theme.typography.h1,
   marginRight: "auto",
   cursor: "pointer",
-  color: theme.palette.common.grey,
+  color: theme.palette.common.yellow,
   textDecoration: "none",
 }));
 
@@ -23,16 +31,33 @@ const Header = styled("header")({
   marginBottom: "8rem",
 });
 
-const Nav = () => (
-  <Header>
-    <NavBar elevation={3}>
-      <Toolbar>
-        <Title to="/">PlaceShare</Title>
-        <NavTabs />
-        {/* {matches ? <Drawer /> : <HeaderTabs />} */}
-      </Toolbar>
-    </NavBar>
-  </Header>
-);
+const ElevationScroll = ({ children }) => {
+  const trigger = useScrollTrigger({
+    disableHysteresis: false, // delay scrolling
+    threshold: 0, // how far the user has to scroll before start listening
+  });
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 3 : 0,
+  });
+};
+
+const Nav = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+  return (
+    <ElevationScroll>
+      <Header>
+        <NavBar elevation={3}>
+          <Toolbar>
+            <Title to="/">PlaceShare</Title>
+            {matches ? <Drawer /> : <NavTabs />}
+          </Toolbar>
+        </NavBar>
+      </Header>
+    </ElevationScroll>
+  );
+};
 
 export default Nav;

@@ -3,28 +3,7 @@ import React from "react";
 import { Tabs, Tab, styled } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 
-const tabs = [
-  {
-    id: 0,
-    name: "All Users",
-    routeName: "/",
-  },
-  {
-    id: 1,
-    name: "My Place",
-    routeName: "/17/places",
-  },
-  {
-    id: 2,
-    name: "Add Place",
-    routeName: "/places/new",
-  },
-  {
-    id: 3,
-    name: "Authentication",
-    routeName: "/auth",
-  },
-];
+import tabs from "./links";
 
 const NavLink = styled(Tab)(({ theme }) => ({
   ...theme.typography.tab,
