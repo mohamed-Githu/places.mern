@@ -1,5 +1,6 @@
 import {
-  Button,
+  IconButton,
+  Tooltip,
   Card,
   CardActions,
   CardContent,
@@ -7,7 +8,10 @@ import {
   styled,
   Typography,
 } from "@material-ui/core";
+
 import Delete from "@material-ui/icons/Delete";
+import Edit from "@material-ui/icons/Edit";
+import Map from "@material-ui/icons/Map";
 
 const MediaContainer = styled(CardMedia)(({ theme }) => ({
   height: "15rem",
@@ -16,42 +20,56 @@ const MediaContainer = styled(CardMedia)(({ theme }) => ({
   },
 }));
 
-const PlacesActions = styled(CardActions)(({ theme }) => ({
-  padding: "1rem 2rem",
+const PlacesActions = styled(CardActions)({
+  padding: "1rem .5rem",
   borderTop: "1px solid #888888",
   display: "flex",
-  justifyContent: "space-around",
-}));
+  "& *:first-child": {
+    marginRight: "auto",
+  },
+});
 
-const PlacesText = styled(Typography)({
-  textAlign: "center",
-  marginBottom: ".5rem",
-  fontSize: (props) => (props.size ? props.size : "1rem"),
-  fontWeight: (props) => (props.weight ? props.weight : 400),
+const PlacesContent = styled(CardContent)({
+  padding: "2rem",
+  "& *": {
+    textAlign: "center",
+    marginBottom: ".5rem",
+    fontWeight: 700,
+    fontSize: "1.5rem",
+  },
+  "& *:last-child": {
+    fontWeight: 400,
+    fontSize: "1rem",
+  },
+  "& *:nth-child(2)": {
+    fontSize: "1.1rem",
+  },
 });
 
 const PlacesItem = ({ title, description, imageUrl, address }) => (
   <Card style={{ margin: "1rem 0" }}>
     <MediaContainer image={imageUrl} title={title} />
-    <CardContent style={{ padding: "2rem" }}>
-      <PlacesText weight={700} size="1.5rem">
-        {title}
-      </PlacesText>
-      <PlacesText weight={700} size="1.15rem">
-        {address}
-      </PlacesText>
-      <PlacesText>{description}</PlacesText>
-    </CardContent>
+    <PlacesContent>
+      <Typography>{title}</Typography>
+      <Typography>{address}</Typography>
+      <Typography>{description}</Typography>
+    </PlacesContent>
     <PlacesActions>
-      <Button>View On Map</Button>
-      <Button>Edit</Button>
-      <Button
-        variant="contained"
-        // className={classes.button}
-        startIcon={<Delete />}
-      >
-        Delete
-      </Button>
+      <Tooltip title="View location on map">
+        <IconButton>
+          <Map />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Edit place post">
+        <IconButton>
+          <Edit />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Delete place post">
+        <IconButton>
+          <Delete />
+        </IconButton>
+      </Tooltip>
     </PlacesActions>
   </Card>
 );
