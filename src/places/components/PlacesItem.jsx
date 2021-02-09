@@ -46,8 +46,14 @@ const PlacesContent = styled(CardContent)({
   },
 });
 
+const PlacesCard = styled(Card)({
+  width: "40rem",
+  maxWidth: "100%",
+  margin: "1rem 0",
+})
+
 const PlacesItem = ({ title, description, imageUrl, address }) => (
-  <Card style={{ margin: "1rem 0" }}>
+  <PlacesCard>
     <MediaContainer image={imageUrl} title={title} />
     <PlacesContent>
       <Typography>{title}</Typography>
@@ -71,7 +77,7 @@ const PlacesItem = ({ title, description, imageUrl, address }) => (
         </IconButton>
       </Tooltip>
     </PlacesActions>
-  </Card>
+  </PlacesCard>
 );
 
 export default PlacesItem;
