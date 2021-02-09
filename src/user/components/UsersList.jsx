@@ -11,12 +11,9 @@ const UsersContainer = styled(Grid)({
   flexWrap: "wrap",
 });
 
-const UsersList = ({ items }) => {
-  return items.length ? (
-    <UsersContainer
-      container
-      justify="center"
-    >
+const UsersList = ({ items }) =>
+  items.length ? (
+    <UsersContainer container justify="center">
       {items.map((item) => (
         <UserItem key={item.id} {...item} />
       ))}
@@ -26,6 +23,5 @@ const UsersList = ({ items }) => {
       No Users Found
     </Typography>
   );
-};
 
 export default UsersList;

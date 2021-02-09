@@ -5,4 +5,5 @@ export const Flex = styled("div")({
   flexDirection: (props) => (props.direction ? props.direction : "row"),
   justifyContent: (props) => (props.justify ? props.justify : "flex-start"),
   alignItems: (props) => (props.align ? props.align : "flex-start"),
+  width: (props) => props.width ? props.width : "100%",
 });

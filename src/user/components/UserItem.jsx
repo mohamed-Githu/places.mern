@@ -11,7 +11,7 @@ import { withRouter } from "react-router-dom";
 
 import { Flex } from "../../shared/layout";
 
-const CardContainer = styled(Card)(({ theme }) => ({
+const UserContainer = styled(Card)(({ theme }) => ({
   margin: "1rem",
   width: "calc(45% - 2rem)",
   minWidth: "20rem",
@@ -37,7 +37,7 @@ const Image = styled(Avatar)({
 });
 
 const UserItem = ({ id, image, placesCount, name, history }) => (
-  <CardContainer onClick={() => history.push(`/${id}/places`)}>
+  <UserContainer onClick={() => history.push(`/${id}/places`)}>
     <CardContent style={{ paddingBottom: "1rem" }}>
       <Flex>
         <Image alt={name} src={image} />
@@ -51,7 +51,7 @@ const UserItem = ({ id, image, placesCount, name, history }) => (
         </Flex>
       </Flex>
     </CardContent>
-  </CardContainer>
+  </UserContainer>
 );
 
 export default withRouter(UserItem);

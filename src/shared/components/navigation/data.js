@@ -6,7 +6,7 @@ const links = [
   },
   {
     id: 1,
-    name: "My Place",
+    name: "My Places",
     routeName: "/17/places",
   },
   {
