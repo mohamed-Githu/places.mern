@@ -1,4 +1,4 @@
-import { createMuiTheme} from '@material-ui/core/styles';
+import { createMuiTheme, darken, lighten} from '@material-ui/core/styles';
 
 const yellow = "#ffd900";
 const grey = "#292929";
@@ -15,26 +15,26 @@ const theme = createMuiTheme({
       white: "#fff",
     },
     primary: {
-      main: `${grey}`
+      main: yellow,
     },
     secondary: {
-      main: `${yellow}`
-    }
+      main: grey,
+    },
   },
   typography: {
     tab: {
       textTransform: "none",
       fontWeight: 700,
       fontSize: "1rem",
-      color: yellow,
+      color: grey,
     },
     h1: {
-      color: grey,
+      color: yellow,
       fontWeight: 700,
       fontSize: "3.5rem",
       lineHeight: 1.5,
     },
-  }
+  },
 })
 
 export default theme;

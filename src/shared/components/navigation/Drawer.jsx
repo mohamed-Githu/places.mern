@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 
 import { Link, withRouter } from "react-router-dom";
-import {
-  SwipeableDrawer,
-  List,
-  ListItem,
-  ListItemText,
-  IconButton,
-} from "@material-ui/core";
+import { SwipeableDrawer, List, ListItem, IconButton } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -33,25 +27,20 @@ const Drawer = ({ location: { pathname } }) => {
         classes={{ paper: classes.paper }}
       >
         <List disablePadding style={{ marginTop: "5.4rem" }}>
-          {listOptions.map(({ name, routeName }) => {
-            const opacity = pathname === routeName ? 1 : ".7";
-
-            return (
-              <ListItem
-                key={name}
-                divider
-                button
-                component={Link}
-                to={routeName}
-                onClick={handleDrawer}
-                selected={pathname === routeName}
-                style={{ opacity }}
-                className={classes.listItem}
-              >
-                <ListItemText secondary>{name}</ListItemText>
-              </ListItem>
-            );
-          })}
+          {listOptions.map(({ name, routeName }) => (
+            <ListItem
+              key={name}
+              divider
+              button
+              component={Link}
+              to={routeName}
+              onClick={handleDrawer}
+              selected={pathname === routeName}
+              className={classes.listItem}
+            >
+              {name}
+            </ListItem>
+          ))}
         </List>
       </SwipeableDrawer>
       <IconButton disableRipple onClick={handleDrawer}>
