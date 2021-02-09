@@ -8,13 +8,13 @@ export const useDrawerStyles = makeStyles((theme) => ({
   listItem: {
     ...theme.typography.tab,
     color: theme.palette.common.white,
+    opacity: ".7",
     padding: "1rem",
     "&:hover": {
       opacity: 1,
     },
     "&.Mui-selected": {
       opacity: 1,
-      // color: theme.palette.common.grey,
       backgroundColor: theme.palette.common.yellow,
       "&:hover": {
         backgroundColor: theme.palette.common.yellow,
