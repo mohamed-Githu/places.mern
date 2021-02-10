@@ -14,7 +14,7 @@ import {
 import MapModal from "./MapModal";
 import { IconWrapper } from "../../shared/layout";
 
-const PlacesItem = ({ title, description, imageUrl, address }) => {
+const PlacesItem = ({ title, description, imageUrl, address, location }) => {
   const [open, setOpen] = useState(false);
   const handleModal = () => setOpen(!open);
 
@@ -45,7 +45,12 @@ const PlacesItem = ({ title, description, imageUrl, address }) => {
           </Tooltip>
         </PlacesActions>
       </PlacesCard>
-      <MapModal open={open} onClose={handleModal} address={address} />
+      <MapModal
+        open={open}
+        onClose={handleModal}
+        address={address}
+        center={location}
+      />
     </>
   );
 };

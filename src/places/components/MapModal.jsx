@@ -1,33 +1,20 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Modal,
-  Typography,
-} from "@material-ui/core";
+import { Modal } from "@material-ui/core";
+import { Close } from "@material-ui/icons";
+import Map from "../../shared/components/Map";
 
-import { Flex, ModalBody } from "../../shared/layout";
+import { IconWrapper, ModalBody } from "../../shared/layout";
+import { ModalHeader, ModalTitle } from "./styles";
 
-const MapModal = ({ address, ...modalProps }) => (
+const MapModal = ({ address, center, ...modalProps }) => (
   <Modal {...modalProps} style={{ zIndex: 1303 }}>
     <ModalBody>
-      <Card style={{ borderRadius: 0 }} elevation={0}>
-        <CardContent>
-          <Typography variant="h4" align="center">
-            {address}
-          </Typography>
-        </CardContent>
-        <CardMedia />
-        <CardActions>
-          <Flex justify="flex-end">
-            <Button variant="outlined" onClick={modalProps.onClose}>
-              Close
-            </Button>
-          </Flex>
-        </CardActions>
-      </Card>
+      <ModalHeader>
+        <ModalTitle variant="h1">{address}</ModalTitle>
+        <IconWrapper onClick={modalProps.onClose}>
+          <Close color="secondary" />
+        </IconWrapper>
+      </ModalHeader>
+      <Map center={center} />
     </ModalBody>
   </Modal>
 );

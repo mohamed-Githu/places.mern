@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, CardMedia, styled } from "@material-ui/core";
+import { Card, CardActions, CardContent, CardMedia, styled, Typography } from "@material-ui/core";
 import { Flex } from "../../shared/layout";
 
 export const PlacesContainer = styled(Flex)(({ theme }) => ({
@@ -52,4 +52,17 @@ export const PlacesCard = styled(Card)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {
     borderRadius: 0,
   },
+}));
+
+export const ModalTitle = styled(Typography)(({ theme }) => ({
+  textAlign: "center",
+  color: theme.palette.common.grey,
+  fontSize: "1.4rem",
+}));
+
+export const ModalHeader = styled(Flex)(({ theme }) => ({
+  padding: "1rem",
+  boxSizing: "border-box",
+  alignItems: "center",
+  justifyContent: "space-between",
 }));

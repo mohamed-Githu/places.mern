@@ -10,7 +10,7 @@ export const Flex = styled("div")({
 
 export const ModalBody = styled("div")(({ theme }) => ({
   position: 'absolute',
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.common.yellow,
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
