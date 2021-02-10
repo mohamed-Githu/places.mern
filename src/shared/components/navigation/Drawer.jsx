@@ -4,7 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 import {
   SwipeableDrawer,
   ListItem,
-  IconButton,
   ListItemIcon,
 } from "@material-ui/core";
 
@@ -12,6 +11,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import listOptions from "./data";
 import { useDrawerStyles, ListContainer } from "./styles";
+import { IconWrapper } from "../../layout";
 
 const Drawer = ({ location: { pathname } }) => {
   const classes = useDrawerStyles();
@@ -51,9 +51,9 @@ const Drawer = ({ location: { pathname } }) => {
           ))}
         </ListContainer>
       </SwipeableDrawer>
-      <IconButton disableRipple onClick={handleDrawer}>
+      <IconWrapper disableRipple onClick={handleDrawer}>
         <MenuIcon color="secondary" className={classes.menuIcon} />
-      </IconButton>
+      </IconWrapper>
     </>
   );
 };

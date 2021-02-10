@@ -7,9 +7,13 @@ export const useDrawerStyles = makeStyles((theme) => ({
   },
   listItem: {
     ...theme.typography.tab,
+    fontWeight: 600,
     color: theme.palette.common.white,
     opacity: ".7",
     padding: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: ".8rem",
+    },
     "&:hover": {
       opacity: 1,
     },
