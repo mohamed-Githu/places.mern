@@ -55,9 +55,9 @@ export const NavBar = styled(AppBar)({
 export const Header = styled("header")(({ theme }) => ({
   zIndex: 1302,
   position: "relative",
-  marginBottom: "10rem",
+  marginBottom: "8rem",
   [theme.breakpoints.down("md")]: {
-    marginBottom: "8rem",
+    marginBottom: "6rem",
   }
 }));
 

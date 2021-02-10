@@ -12,8 +12,7 @@ const LeafLet = styled("div")(({ theme }) => ({
   "& .leaflet-container": {
     height: "100%",
   }
-}))
-
+}));
 
 const Map = ({ zoom = 5, center }) => {
   const theme = useTheme();
