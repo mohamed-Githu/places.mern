@@ -46,11 +46,14 @@ const PlacesContent = styled(CardContent)({
   },
 });
 
-const PlacesCard = styled(Card)({
+const PlacesCard = styled(Card)(({ theme }) => ({
   width: "40rem",
   maxWidth: "100%",
-  margin: "1rem 0",
-})
+  marginBottom: "4rem",
+  [theme.breakpoints.down("xs")]: {
+    borderRadius: 0,
+  },
+}));
 
 const PlacesItem = ({ title, description, imageUrl, address }) => (
   <PlacesCard>

@@ -3,12 +3,16 @@ import { Card, CardContent, styled, Typography } from "@material-ui/core";
 import PlacesItem from "./PlacesItem";
 import { Flex } from "../../shared/layout";
 
-const PlacesContainer = styled(Flex)({
+const PlacesContainer = styled(Flex)(({ theme }) => ({
   margin: "1rem auto",
   padding: 0,
   width: "90%",
-  maxWidth: "40rem",
-});
+  maxWidth: "38rem",
+  [theme.breakpoints.down("xs")]:{
+    width: "100%",
+    margin: "1rem 0",
+  }
+}));
 
 const PlacesList = ({ items }) =>
   items.length ? (
