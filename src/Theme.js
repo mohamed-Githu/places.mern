@@ -1,4 +1,4 @@
-import { createMuiTheme, darken, lighten} from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 const yellow = "#ffd900";
 const grey = "#292929";
@@ -35,6 +35,13 @@ const theme = createMuiTheme({
       lineHeight: 1.5,
     },
   },
-})
+  overrides: {
+    MuiOutlinedInput: {
+      root: {
+        borderRadius: 0,
+      },
+    },
+  },
+});
 
 export default theme;
