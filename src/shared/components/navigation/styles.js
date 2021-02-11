@@ -1,4 +1,4 @@
-import { AppBar, List, makeStyles, styled } from "@material-ui/core";
+import { AppBar, List, makeStyles, styled, Tab } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 export const useDrawerStyles = makeStyles((theme) => ({
@@ -64,3 +64,7 @@ export const Header = styled("header")(({ theme }) => ({
 export const ListContainer = styled(List)({
   marginTop: "4.4rem",
 });
+
+export const NavLink = styled(Tab)(({ theme }) => ({
+  ...theme.typography.tab,
+}));

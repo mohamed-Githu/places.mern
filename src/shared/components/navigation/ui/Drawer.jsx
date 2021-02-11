@@ -9,9 +9,9 @@ import {
 
 import MenuIcon from "@material-ui/icons/Menu";
 
-import listOptions from "./data";
-import { useDrawerStyles, ListContainer } from "./styles";
-import { IconWrapper } from "../../layout";
+import listOptions from "../data";
+import { useDrawerStyles, ListContainer } from "../styles";
+import { IconWrapper } from "../../../layout";
 
 const Drawer = ({ location: { pathname } }) => {
   const classes = useDrawerStyles();

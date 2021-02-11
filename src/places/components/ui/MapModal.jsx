@@ -1,9 +1,9 @@
 import { Modal } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
-import Map from "../../shared/components/Map";
+import Map from "../../../shared/Map";
 
-import { IconWrapper, ModalBody } from "../../shared/layout";
-import { ModalHeader, ModalTitle } from "./styles";
+import { IconWrapper, ModalBody } from "../../../shared/layout";
+import { ModalHeader, ModalTitle } from "../styles";
 
 const MapModal = ({ address, center, ...modalProps }) => (
   <Modal {...modalProps} style={{ zIndex: 1303 }}>

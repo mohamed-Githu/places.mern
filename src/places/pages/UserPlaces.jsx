@@ -1,4 +1,4 @@
-import PlacesList from "../components/PlacesList";
+import PlacesList from "../components/ui/PlacesList";
 
 const DUMMY_PLACES = [
   {

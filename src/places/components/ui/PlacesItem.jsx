@@ -10,9 +10,9 @@ import {
   PlacesContent,
   PlacesCard,
   MediaContainer,
-} from "./styles";
+} from "../styles";
 import MapModal from "./MapModal";
-import { IconWrapper } from "../../shared/layout";
+import { IconWrapper } from "../../../shared/layout";
 
 const PlacesItem = ({ title, description, imageUrl, address, location }) => {
   const [open, setOpen] = useState(false);

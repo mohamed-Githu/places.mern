@@ -1,13 +1,8 @@
-import React from "react";
-
-import { Tabs, Tab, styled } from "@material-ui/core";
+import { Tabs } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 
-import tabs from "./data";
-
-const NavLink = styled(Tab)(({ theme }) => ({
-  ...theme.typography.tab,
-}));
+import tabs from "../data";
+import { NavLink } from "../styles";
 
 const NavTabs = ({ location, history }) => (
   <Tabs value={location.pathname}>

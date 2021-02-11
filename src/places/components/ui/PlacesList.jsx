@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from "@material-ui/core";
 
 import PlacesItem from "./PlacesItem";
-import { PlacesContainer } from "./styles";
+import { PlacesContainer } from "../styles";
 
 const PlacesList = ({ items }) =>
   items.length ? (

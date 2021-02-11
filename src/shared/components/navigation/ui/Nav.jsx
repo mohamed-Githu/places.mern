@@ -9,7 +9,7 @@ import {
 
 import NavTabs from "./NavTabs";
 import Drawer from "./Drawer";
-import { Header, NavBar, Title } from "./styles";
+import { Header, NavBar, Title } from "../styles";
 
 const ElevationScroll = ({ children }) => {
   const trigger = useScrollTrigger({

@@ -3,7 +3,7 @@ import { ThemeProvider } from "@material-ui/core";
 
 import NewPlace from "./places/pages/NewPlace";
 import Users from "./user/pages/Users";
-import Nav from "./shared/components/navigation/Nav";
+import Nav from "./shared/components/navigation/ui/Nav";
 import UserPlaces from "./places/pages/UserPlaces";
 
 import theme from "./Theme";
