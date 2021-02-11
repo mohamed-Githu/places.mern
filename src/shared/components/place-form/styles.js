@@ -5,7 +5,6 @@ export const FormContainer = styled(Card)(({ theme }) => ({
   padding: "1rem 2rem",
   width: "40rem",
   maxWidth: "100%",
-  margin: "10rem auto",
   boxSizing: "border-box",
   [theme.breakpoints.down("xs")]: {
     width: "100%",

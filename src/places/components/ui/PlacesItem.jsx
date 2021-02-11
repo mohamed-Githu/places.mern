@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import { Tooltip, Typography } from "@material-ui/core";
 
 import Delete from "@material-ui/icons/Delete";
@@ -12,11 +12,17 @@ import {
   MediaContainer,
 } from "../styles";
 import MapModal from "./MapModal";
+import EditModal from "./EditModal";
 import { IconWrapper } from "../../../shared/layout";
+import modalsReducer, { INITIAL_STATE } from "../modalsReducer";
 
 const PlacesItem = ({ title, description, imageUrl, address, location }) => {
-  const [open, setOpen] = useState(false);
-  const handleModal = () => setOpen(!open);
+  const [{ editModal, mapModal }, dispatch] = useReducer(
+    modalsReducer,
+    INITIAL_STATE
+  );
+
+  const handleModals = (id) => dispatch({ type: `SET_${id.toUpperCase()}` });
 
   return (
     <>
@@ -28,12 +34,15 @@ const PlacesItem = ({ title, description, imageUrl, address, location }) => {
           <Typography>{description}</Typography>
         </PlacesContent>
         <PlacesActions>
-          <Tooltip title="View location on map" onClick={handleModal}>
+          <Tooltip
+            title="View location on map"
+            onClick={() => handleModals("map")}
+          >
             <IconWrapper>
               <Map />
             </IconWrapper>
           </Tooltip>
-          <Tooltip title="Edit place post">
+          <Tooltip title="Edit place post" onClick={() => handleModals("edit")}>
             <IconWrapper>
               <Edit />
             </IconWrapper>
@@ -46,10 +55,15 @@ const PlacesItem = ({ title, description, imageUrl, address, location }) => {
         </PlacesActions>
       </PlacesCard>
       <MapModal
-        open={open}
-        onClose={handleModal}
+        open={mapModal}
+        onClose={handleModals}
         address={address}
         center={location}
+      />
+      <EditModal
+        open={editModal}
+        onClose={handleModals}
+        data={{ title, description, address }}
       />
     </>
   );

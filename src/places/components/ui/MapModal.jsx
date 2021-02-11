@@ -5,12 +5,12 @@ import Map from "../../../shared/Map";
 import { IconWrapper, ModalBody } from "../../../shared/layout";
 import { ModalHeader, ModalTitle } from "../styles";
 
-const MapModal = ({ address, center, ...modalProps }) => (
-  <Modal {...modalProps} style={{ zIndex: 1303 }}>
+const MapModal = ({ address, center, open, onClose }) => (
+  <Modal style={{ zIndex: 1303 }} open={open} onClose={() => onClose("map")}>
     <ModalBody>
       <ModalHeader>
         <ModalTitle variant="h1">{address}</ModalTitle>
-        <IconWrapper onClick={modalProps.onClose}>
+        <IconWrapper onClick={onClose}>
           <Close color="secondary" />
         </IconWrapper>
       </ModalHeader>
