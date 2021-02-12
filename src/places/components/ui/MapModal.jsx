@@ -1,6 +1,6 @@
 import { Modal } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
-import Map from "../../../shared/Map";
+import Map from "../../../shared/components/Map";
 
 import { IconWrapper, ModalBody } from "../../../shared/layout";
 import { ModalHeader, ModalTitle } from "../styles";

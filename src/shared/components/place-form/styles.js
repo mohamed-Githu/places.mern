@@ -1,4 +1,4 @@
-import { Button, Card, styled, Typography } from "@material-ui/core";
+import { Card, styled, Typography } from "@material-ui/core";
 
 export const FormContainer = styled(Card)(({ theme }) => ({
   borderRadius: 0,
@@ -23,14 +23,4 @@ export const FormTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.secondary.main,
   textAlign: "center",
   marginBottom: "2.2rem",
-}));
-
-export const FormSubmit = styled(Button)(({ theme }) => ({
-  borderRadius: 0,
-  textTransform: "none",
-  color: theme.palette.secondary.main,
-  fontWeight: 700,
-  "&:hover": {
-    textDecoration: "underline",
-  },
 }));

@@ -1,8 +1,9 @@
 import { useReducer } from "react";
 import { TextField } from "@material-ui/core";
 
-import { FormContainer, FormSubmit, FormTitle } from "../styles";
+import { FormContainer, FormTitle } from "../styles";
 import { Flex } from "../../../layout";
+import CustomButton from "../../CustomButton";
 import inputReducer, { INITIAL_STATE } from "../inputReducer";
 
 const PlaceForm = ({ initialState }) => {
@@ -63,14 +64,13 @@ const PlaceForm = ({ initialState }) => {
           helperText={address.isValid && "Please Enter a Valid Address"}
           fullWidth
         />
-        <FormSubmit
-          elevation={5}
+        <CustomButton
           disabled={
-            !title.value.lenght || description.isValid || !address.value.lenght
+            !title.value.length || description.isValid || !address.value.length
           }
         >
           Add Place
-        </FormSubmit>
+        </CustomButton>
       </Flex>
     </FormContainer>
   );
