@@ -4,7 +4,7 @@ import CustomModal from "../../../shared/components/CustomModal";
 import { Flex } from "../../../shared/layout";
 
 const DeleteModal = ({ open, onClose }) => (
-  <CustomModal normalHeight open={open} onClose={() => onClose("delete")}>
+  <CustomModal open={open} onClose={() => onClose("delete")}>
     <Card style={{ padding: "1rem" }}>
       <Typography variant="h4" align="center">
         Are You Sure?

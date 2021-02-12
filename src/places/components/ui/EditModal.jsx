@@ -2,7 +2,7 @@ import PlaceForm from "../../../shared/components/place-form/ui/PlaceForm";
 import CustomModal from "../../../shared/components/CustomModal";
 
 const EditModal = ({ data, open, onClose }) => (
-  <CustomModal open={open} onClose={() => onClose("edit")}>
+  <CustomModal open={open} onClose={onClose}>
     <PlaceForm
       initialState={{
         title: {

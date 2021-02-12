@@ -17,9 +17,6 @@ export const ModalBody = styled("div")(({ theme }) => ({
   outline: "none",
   width: "40rem",
   maxWidth: "100%",
-  [theme.breakpoints.down("xs")]: {
-    height: (props) => props.normalHeight || "100%"
-  }
 }));
 
 export const IconWrapper = styled(IconButton)(({ theme }) => ({

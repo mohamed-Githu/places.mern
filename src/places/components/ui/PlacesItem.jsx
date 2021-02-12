@@ -16,6 +16,7 @@ import EditModal from "./EditModal";
 import { IconWrapper } from "../../../shared/layout";
 import modalsReducer, { INITIAL_STATE } from "../modalsReducer";
 import DeleteModal from "./DeleteModal";
+import { modalIcons } from "../data";
 
 const PlacesItem = ({ title, description, imageUrl, address, location }) => {
   const [{ editModal, mapModal, deleteModal }, dispatch] = useReducer(
@@ -23,7 +24,7 @@ const PlacesItem = ({ title, description, imageUrl, address, location }) => {
     INITIAL_STATE
   );
 
-  const handleModals = (id) => dispatch({ type: `SET_${id.toUpperCase()}` });
+  const handleModals = (id) => dispatch({ type: `SET_${id}` });
 
   return (
     <>
@@ -35,41 +36,31 @@ const PlacesItem = ({ title, description, imageUrl, address, location }) => {
           <Typography>{description}</Typography>
         </PlacesContent>
         <PlacesActions>
-          <Tooltip
-            title="View location on map"
-            onClick={() => handleModals("map")}
-          >
-            <IconWrapper>
-              <Map />
-            </IconWrapper>
-          </Tooltip>
-          <Tooltip title="Edit place post" onClick={() => handleModals("edit")}>
-            <IconWrapper>
-              <Edit />
-            </IconWrapper>
-          </Tooltip>
-          <Tooltip
-            title="Delete place post"
-            onClick={() => handleModals("delete")}
-          >
-            <IconWrapper>
-              <Delete />
-            </IconWrapper>
-          </Tooltip>
+          {modalIcons.map(({ title, id, Icon }) => (
+            <Tooltip
+              key={id}
+              title={title}
+              onClick={() => handleModals(id.toUpperCase())}
+            >
+              <IconWrapper>
+                <Icon />
+              </IconWrapper>
+            </Tooltip>
+          ))}
         </PlacesActions>
       </PlacesCard>
       <MapModal
         open={mapModal}
-        onClose={handleModals}
+        onClose={() => handleModals("MAP")}
         address={address}
         center={location}
       />
       <EditModal
         open={editModal}
-        onClose={handleModals}
+        onClose={() => handleModals("EDIT")}
         data={{ title, description, address }}
       />
-      <DeleteModal open={deleteModal} onClose={handleModals} />
+      <DeleteModal open={deleteModal} onClose={() => handleModals("DELETE")} />
     </>
   );
 };
