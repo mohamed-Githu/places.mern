@@ -18,7 +18,7 @@ export const ModalBody = styled("div")(({ theme }) => ({
   width: "40rem",
   maxWidth: "100%",
   [theme.breakpoints.down("xs")]: {
-    height: "100%"
+    height: (props) => props.normalHeight || "100%"
   }
 }));
 

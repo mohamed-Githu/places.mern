@@ -15,9 +15,10 @@ import MapModal from "./MapModal";
 import EditModal from "./EditModal";
 import { IconWrapper } from "../../../shared/layout";
 import modalsReducer, { INITIAL_STATE } from "../modalsReducer";
+import DeleteModal from "./DeleteModal";
 
 const PlacesItem = ({ title, description, imageUrl, address, location }) => {
-  const [{ editModal, mapModal }, dispatch] = useReducer(
+  const [{ editModal, mapModal, deleteModal }, dispatch] = useReducer(
     modalsReducer,
     INITIAL_STATE
   );
@@ -47,7 +48,10 @@ const PlacesItem = ({ title, description, imageUrl, address, location }) => {
               <Edit />
             </IconWrapper>
           </Tooltip>
-          <Tooltip title="Delete place post">
+          <Tooltip
+            title="Delete place post"
+            onClick={() => handleModals("delete")}
+          >
             <IconWrapper>
               <Delete />
             </IconWrapper>
@@ -65,6 +69,7 @@ const PlacesItem = ({ title, description, imageUrl, address, location }) => {
         onClose={handleModals}
         data={{ title, description, address }}
       />
+      <DeleteModal open={deleteModal} onClose={handleModals} />
     </>
   );
 };

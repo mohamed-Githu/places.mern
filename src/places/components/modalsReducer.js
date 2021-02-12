@@ -1,6 +1,7 @@
 export const INITIAL_STATE = {
   mapModal: false,
   editModal: false,
+  deleteModal: false,
 };
 
 const modalsReducer = (state = INITIAL_STATE, action) => {
@@ -14,6 +15,11 @@ const modalsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         editModal: !state.editModal,
+      };
+    case "SET_DELETE":
+      return {
+        ...state,
+        deleteModal: !state.deleteModal,
       }
     default:
       return state;
