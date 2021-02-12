@@ -1,4 +1,4 @@
-import { IconButton, Modal, styled } from "@material-ui/core";
+import { IconButton, styled } from "@material-ui/core";
 
 export const Flex = styled("div")({
   display: "flex",
