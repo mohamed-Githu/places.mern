@@ -36,9 +36,10 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
-    MuiOutlinedInput: {
+    MuiFilledInput: {
       root: {
-        borderRadius: 0,
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
       },
     },
   },

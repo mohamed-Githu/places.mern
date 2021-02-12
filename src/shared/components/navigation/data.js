@@ -25,7 +25,7 @@ const links = [
   {
     id: 3,
     name: "Authentication",
-    routeName: "/auth",
+    routeName: "/auth/sign-in",
     Icon: VpnKeyIcon,
   },
 ];

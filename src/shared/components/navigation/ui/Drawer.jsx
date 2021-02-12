@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 
 import { Link, withRouter } from "react-router-dom";
-import {
-  SwipeableDrawer,
-  ListItem,
-  ListItemIcon,
-} from "@material-ui/core";
+import { SwipeableDrawer, ListItem, ListItemIcon } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -40,7 +36,7 @@ const Drawer = ({ location: { pathname } }) => {
               component={Link}
               to={routeName}
               onClick={handleDrawer}
-              selected={pathname === routeName}
+              selected={pathname.slice(0, 11) === routeName.slice(0, 11)}
               className={classes.listItem}
             >
               <ListItemIcon style={{ color: "inherit" }}>

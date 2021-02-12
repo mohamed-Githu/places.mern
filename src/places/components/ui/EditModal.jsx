@@ -1,5 +1,6 @@
-import PlaceForm from "../../../shared/components/place-form/ui/PlaceForm";
+
 import CustomModal from "../../../shared/components/CustomModal";
+import PlaceForm from "./PlaceForm";
 
 const EditModal = ({ data, open, onClose }) => (
   <CustomModal open={open} onClose={onClose}>

@@ -5,12 +5,12 @@ import tabs from "../data";
 import { NavLink } from "../styles";
 
 const NavTabs = ({ location, history }) => (
-  <Tabs value={location.pathname}>
+  <Tabs value={location.pathname.slice(0,11)}>
     {tabs.map(({ id, name, routeName }) => (
       <NavLink
         disableRipple
         onClick={() => history.push(routeName)}
-        value={routeName}
+        value={routeName.slice(0,11)}
         key={id}
         label={name}
       />

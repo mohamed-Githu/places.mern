@@ -1,4 +1,4 @@
-import UsersList from "../components/UsersList";
+import UsersList from "../components/ui/UsersList";
 
 const Users = () => {
   const USERS = [
@@ -7,12 +7,10 @@ const Users = () => {
       name: "Mohamed Hussein",
       image: "",
       placesCount: 3,
-    }
-  ]
+    },
+  ];
 
-  return (
-    <UsersList items={USERS} />
-  );
+  return <UsersList items={USERS} />;
 };
 
 export default Users;

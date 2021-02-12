@@ -1,7 +1,7 @@
 import { Button, styled } from "@material-ui/core";
 
 const StyledButton = styled(Button)(({ theme, outline }) => ({
-  fontSize: ".9rem",
+  fontSize: "1rem",
   letterSpacing: "1px",
   color: theme.palette.secondary.main,
   backgroundColor: outline || theme.palette.primary.main,

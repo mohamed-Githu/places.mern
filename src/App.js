@@ -5,6 +5,7 @@ import NewPlace from "./places/pages/NewPlace";
 import Users from "./user/pages/Users";
 import Nav from "./shared/components/navigation/ui/Nav";
 import UserPlaces from "./places/pages/UserPlaces";
+import Auth from "./user/pages/Auth";
 
 import theme from "./Theme";
 
@@ -17,7 +18,8 @@ function App() {
           <Route path="/" component={Users} exact />
           <Route path="/places/new" component={NewPlace} exact />
           <Route path="/:userId/places" component={UserPlaces} exact />
-          {/* <Redirect to="/" /> */}
+          <Route path="/auth" component={Auth} />
+          <Redirect to="/" />
         </Switch>
       </Router>
     </ThemeProvider>

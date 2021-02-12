@@ -1,10 +1,5 @@
-import PlaceForm from "../../shared/components/place-form/ui/PlaceForm";
-import { Flex } from "../../shared/layout";
+import PlaceForm from "../components/ui/PlaceForm";
 
-const NewPlace = () => (
-  <Flex justify="center" style={{ marginTop: "10rem" }}>
-    <PlaceForm />
-  </Flex>
-);
+const NewPlace = () => <PlaceForm />
 
 export default NewPlace;

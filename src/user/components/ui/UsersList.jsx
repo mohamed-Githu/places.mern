@@ -1,15 +1,7 @@
-import React from "react";
-
-import { Grid, styled, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import UserItem from "./UserItem";
-
-const UsersContainer = styled(Grid)({
-  width: "90%",
-  maxWidth: "50em",
-  margin: "0 auto",
-  flexWrap: "wrap",
-});
+import { UsersContainer } from "../styles";
 
 const UsersList = ({ items }) =>
   items.length ? (

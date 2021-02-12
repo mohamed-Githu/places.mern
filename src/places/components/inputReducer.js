@@ -1,17 +1,20 @@
-import { validate, validateSize } from "./utils";
+import { validate, validateSize } from "../../shared/components/form/utils";
 
 export const INITIAL_STATE = {
   title: {
     value: "",
     isValid: false,
+    helperText: "This Field Is Requierd"
   },
   description: {
     value: "",
     isValid: false,
+    helperText: "The Description Must Contain At Least 10 Characters"
   },
   address: {
     value: "",
     isValid: false,
+    helperText: "Please Enter a Valid Address"
   },
 };
 
@@ -23,6 +26,7 @@ const inputReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         title: {
+          ...state.title,
           value: payload,
           isValid: validate(payload),
         },
@@ -31,6 +35,7 @@ const inputReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         description: {
+          ...state.description,
           value: payload,
           isValid: validateSize(payload, 10),
         },
@@ -39,6 +44,7 @@ const inputReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         address: {
+          ...state.address,
           value: payload,
           isValid: validate(payload),
         },
