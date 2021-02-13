@@ -3,7 +3,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PeopleIcon from '@material-ui/icons/People';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
-const links = [
+export const authLinks = [
   {
     id: 0,
     name: "All Users",
@@ -22,6 +22,15 @@ const links = [
     routeName: "/places/new",
     Icon: PeopleIcon,
   },
+];
+
+export const unAuthLinks = [
+  {
+    id: 0,
+    name: "All Users",
+    routeName: "/",
+    Icon: HomeIcon,
+  },
   {
     id: 3,
     name: "Authentication",
@@ -30,4 +39,3 @@ const links = [
   },
 ];
 
-export default links;

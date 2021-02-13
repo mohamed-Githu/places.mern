@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { Link, withRouter } from "react-router-dom";
 import { SwipeableDrawer, ListItem, ListItemIcon } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
 
-import listOptions from "../data";
+import { authLinks, unAuthLinks } from "../data";
 import { useDrawerStyles, ListContainer } from "../styles";
 import { IconWrapper } from "../../../layout";
+import { AuthContext } from "../../../context/AuthContext";
 
 const Drawer = ({ location: { pathname } }) => {
   const classes = useDrawerStyles();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const handleDrawer = () => setOpenDrawer(!openDrawer);
+
+  const listOptions = isLoggedIn ? authLinks : unAuthLinks;
 
   return (
     <>

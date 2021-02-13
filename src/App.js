@@ -8,20 +8,23 @@ import UserPlaces from "./places/pages/UserPlaces";
 import Auth from "./user/pages/Auth";
 
 import theme from "./Theme";
+import AuthProvider from "./shared/context/AuthContext";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <Nav />
-        <Switch>
-          <Route path="/" component={Users} exact />
-          <Route path="/places/new" component={NewPlace} exact />
-          <Route path="/:userId/places" component={UserPlaces} exact />
-          <Route path="/auth" component={Auth} />
-          <Redirect to="/" />
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Nav />
+          <Switch>
+            <Route path="/" component={Users} exact />
+            <Route path="/places/new" component={NewPlace} exact />
+            <Route path="/:userId/places" component={UserPlaces} exact />
+            <Route path="/auth" component={Auth} />
+            <Redirect to="/" />
+          </Switch>
+        </Router>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
