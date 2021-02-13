@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { Tabs } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 
 import { authLinks, unAuthLinks } from "../data";
 import { NavLink } from "../styles";
-import { AuthContext } from "../../../context/AuthContext";
+import { useAuthState } from "../../../context/AuthContext";
 
 const NavTabs = ({ location, history }) => {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useAuthState();
   const tabs = isLoggedIn ? authLinks : unAuthLinks;
 
   return (

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
 
@@ -8,23 +9,38 @@ import UserPlaces from "./places/pages/UserPlaces";
 import Auth from "./user/pages/Auth";
 
 import theme from "./Theme";
-import AuthProvider from "./shared/context/AuthContext";
+import { AuthContext } from "./shared/context/AuthContext";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const login = () => setIsLoggedIn(true);
+  const logout = () => setIsLoggedIn(false);
+
+  let Routes = isLoggedIn ? () => (
+    <>
+      <Route path="/" component={Users} exact />
+      <Route path="/places/new" component={NewPlace} exact />
+      <Route path="/:userId/places" component={UserPlaces} exact />
+    </>
+  ) : () => (
+    <>
+      <Route path="/" component={Users} exact />
+      <Route path="/auth" component={Auth} />
+    </>
+  );
+
   return (
     <ThemeProvider theme={theme}>
-      <AuthProvider>
-        <Router>
+      <Router>
+        <AuthContext.Provider value={{ login, isLoggedIn }}>
           <Nav />
           <Switch>
-            <Route path="/" component={Users} exact />
-            <Route path="/places/new" component={NewPlace} exact />
-            <Route path="/:userId/places" component={UserPlaces} exact />
-            <Route path="/auth" component={Auth} />
+            <Routes />
             <Redirect to="/" />
           </Switch>
-        </Router>
-      </AuthProvider>
+        </AuthContext.Provider>
+      </Router>
     </ThemeProvider>
   );
 }

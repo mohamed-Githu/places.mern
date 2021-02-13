@@ -6,8 +6,11 @@ import Form from "../../../shared/components/form/ui/Form";
 import InputField from "../../../shared/components/form/ui/InputField";
 import signInReducer, { INITIAL_STATE } from "../signInReducer";
 import { LinkedButton } from "../styles";
+import { useAuthState } from "../../../shared/context/AuthContext";
 
 const SignInForm = () => {
+  const { login } = useAuthState();
+
   const [state, dispatch] = useReducer(signInReducer, INITIAL_STATE);
   const { email, password } = state;
   const isFormValid =
@@ -30,7 +33,9 @@ const SignInForm = () => {
         Don't have an account?{" "}
         <LinkedButton to="/auth/sign-up">Sign up</LinkedButton>
       </Typography>
-      <CustomButton disabled={isFormValid}>Proceed</CustomButton>
+      <CustomButton onClick={login} disabled={isFormValid}>
+        Proceed
+      </CustomButton>
     </Form>
   );
 };
