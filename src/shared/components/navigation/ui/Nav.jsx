@@ -10,6 +10,8 @@ import {
 import NavTabs from "./NavTabs";
 import Drawer from "./Drawer";
 import { Header, NavBar, Title } from "../styles";
+import { useAuthState } from "../../../context/AuthContext";
+import CustomButton from "../../CustomButton";
 
 const ElevationScroll = ({ children }) => {
   const trigger = useScrollTrigger({
@@ -26,6 +28,8 @@ const Nav = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
+  const { isLoggedIn, logout } = useAuthState();
+
   return (
     <ElevationScroll>
       <Header>
@@ -33,6 +37,11 @@ const Nav = () => {
           <Toolbar>
             <Title to="/">PlaceShare</Title>
             {matches ? <Drawer /> : <NavTabs />}
+            {isLoggedIn && (
+              <CustomButton style={{ marginLeft: "2rem" }} onClick={logout}>
+                Log out
+              </CustomButton>
+            )}
           </Toolbar>
         </NavBar>
       </Header>

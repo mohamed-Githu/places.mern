@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
 
@@ -18,27 +18,26 @@ function App() {
   const logout = () => setIsLoggedIn(false);
 
   let Routes = isLoggedIn ? () => (
-    <>
+    <Switch>
       <Route path="/" component={Users} exact />
       <Route path="/places/new" component={NewPlace} exact />
       <Route path="/:userId/places" component={UserPlaces} exact />
-    </>
+      <Redirect to="/" />
+    </Switch>
   ) : () => (
-    <>
+    <Switch>
       <Route path="/" component={Users} exact />
       <Route path="/auth" component={Auth} />
-    </>
+      <Redirect to="/" />
+    </Switch>
   );
 
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <AuthContext.Provider value={{ login, isLoggedIn }}>
+        <AuthContext.Provider value={{ login, isLoggedIn, logout }}>
           <Nav />
-          <Switch>
-            <Routes />
-            <Redirect to="/" />
-          </Switch>
+          <Routes />
         </AuthContext.Provider>
       </Router>
     </ThemeProvider>
